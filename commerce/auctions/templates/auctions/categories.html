@@ -1,0 +1,32 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+<style>
+#category {
+    list-style-type: none; /* Remove bullets */
+    padding: 0;  
+}
+#category-item{
+    
+    margin: 0.5em 0;      
+
+
+}
+</style>
+<h2>Categories</h2>
+
+{% if categories %}        
+    <div id="category">
+        {% for category in categories %}
+            <div id="category-item">
+                <a href="{% url 'category_listings' category %}">{{category}}</a>
+            </div>
+        {% endfor %}
+    </div>
+        
+
+{% else %}
+
+    <p>No Category found.</p>
+{% endif %}
+{% endblock %}
